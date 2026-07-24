@@ -1,0 +1,1 @@
+# alsuwaidi-news-sync
