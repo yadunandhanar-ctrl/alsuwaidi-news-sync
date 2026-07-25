@@ -34,6 +34,14 @@ jobs:
       - name: Run Fetch Script
         run: node scripts/fetchNews.js
 
+      - name: Upload to SharePoint
+        run: node scripts/uploadToSharePoint.js
+        env:
+          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          SHAREPOINT_DRIVE_ID: ${{ secrets.SHAREPOINT_DRIVE_ID }}
+
       - name: Commit Updated JSON
         run: |
           git config user.name "github-actions"
